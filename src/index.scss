@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+
+/* fonts */
+$Raleway: 'Raleway', 'Arial', 'Helvetica';
+$Roboto: 'Roboto', 'Arial', 'Helvetica';
+$OpenSans: 'Open Sans', 'Arial', 'Helvetica';
+$Lato: 'Lato', 'Arial', 'Helvetica';
+
+
+/* colors */
+$bg: #F3E7E6;
+$yellow: #FEE44D;
+$blue: #0300F9;
+$grey: #9E95E0;
+$lightwhite: #FDFDFD;
+
+/* global classes */
+.center-align {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+body {
+    background-color: $bg;
+}
+
+#root {
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    .yellow-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        height: 50px;
+        width: 50px;
+        background-color: $yellow;
+        border-radius: 50%;
+        margin: 50px;
+
+    }
+    .yellow-icon:nth-child(2) {
+        position: absolute;
+        right: 50px;
+    }
+    .mobile-heading {
+        color: $blue;
+        display: block;
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        font-size: 80px;
+        letter-spacing: 10px;
+        margin: 70px 70px 70px 0px;
+    }
+    .logo-container {
+        text-align: center;
+        .logo {
+            height: 100px;
+            margin: 40px 0;
+        }
+    }
+}
+
+.content {
+    h1, h2, h3 {
+        color: $blue;
+        font-family: $Lato;
+        text-align: center;
+    }
+
+    &.about {
+        background-color: $blue;
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+        .container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            .row {
+                width: 100%;
+            }
+        }
+        h1 {
+            color: $lightwhite;
+            text-align: left;
+        }
+
+        .tab-list {
+            list-style-type: none;
+            .tab {
+                color: $lightwhite;
+                font-family: $OpenSans;
+                font-size: 70px;
+                font-weight: 900;
+            }
+            .tab span:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &.login {
+        .input-field {
+            border-radius: 30px;
+            display: block;
+            margin: 30px auto;
+            height: 60px;
+            width: 95%;
+        }
+
+        .btn-container {
+            width: 95%;
+            text-align: center;
+            .btn {
+                border-radius: 30px;
+                height: 60px;
+                width: 100%;
+                margin: 10px;
+            }
+        }
+    }
+
+    &.signup {
+        .input-field {
+            border-radius: 30px;
+            display: block;
+            margin: 30px auto;
+            height: 60px;
+            width: 95%;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            .btn {
+                border-radius: 30px;
+                height: 60px;
+                margin: 10px;
+            }
+        }
+    }
+
+    &.search-container {
+        .job-search-form {
+            margin: 0;
+            text-align: center;
+            color: $blue;
+            padding: 0 0 100px;
+            .main-text {
+                color: $grey;
+                display: inline;
+                font-family: $Lato;
+                font-size: 70px;
+                font-weight: 700;
+                line-height: normal;
+                margin: 0;
+            }
+
+            .search-field {
+                color: $blue;
+                background: transparent;
+                border: none;
+                margin: 5px;
+                padding: 0 2px;
+                outline: none;
+
+                &#keyword {
+                    width: 400px;
+                }
+                &#location {
+                    width: 250px;
+                }
+                &#job_type {
+                    width: 350px;
+                }
+                &::placeholder {
+                    color: $blue;
+                }
+            }
+        }
+        .search-results {
+            background-color: $lightwhite;
+            padding: 20px;
+            .job-post {
+                background-color: $bg;
+                border-radius: 5px;
+                color: $blue;
+                font-family: $Lato;
+                font-size: 25px;
+                font-weight: 300;
+                margin: 20px;
+                .job-heading {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid $blue;
+                    padding: 20px 20px 15px;
+                    .heading {
+                        display: inline-block;
+                        padding: 0 10px 0 10px;
+                        border-right: 1px solid $blue;
+                    }
+                    .fa {
+                        padding-left: 10px;
+                    }
+                    .time-posted {
+                        font-size: 15px;
+                    }
+                }
+                .job-description {
+                    p {
+                        padding: 20px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
+                }
+            }
+            .bookmarked {
+                background-color: $blue;
+                color: $lightwhite;
+                .job-heading {
+                    border-color: $grey;
+                    .heading {
+                        border-color: $lightwhite;
+                    }
+                }
+            }
+        }
+    }
+    &.job-detail {
+        color: $blue;
+        font-family: $Lato;
+        font-weight: 300;
+        h1 {
+            display: inline-block;
+            padding: 0 2%;
+            text-align: left;
+            font-weight: inherit;
+            span {
+                display: inline-block;
+                padding: 0 10px 0 10px;
+            }
+            .border-right {
+                border-right: 1px solid $blue;
+            }
+        }
+        hr {
+            border: 1px solid $blue;
+            border-top: none;
+        }
+        .btn-container {
+            text-align: left;
+        }
+    }
+}
+
+.center-block {
+    float: none;
+    margin: 0 auto;
+}
+
+.input-field {
+    border-radius: 25px;
+    margin: 20px 0;
+    text-align: center;
+    padding: 20px;
+}
+
+.checkbox-container {
+    padding: 20px 0 20px 60px;
+    .checkbox-label {
+        position: absolute;
+    }
+}
+
+.btn-container {
+    margin: 20px 0;
+    text-align: center;
+    font-family: $Lato;
+    .btn {
+        background-color: $blue;
+        border-radius: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 20px 0;
+        width: 20%;
+        height: 50px;
+    }
+}
+.newsletter-container {
+    background-color: $lightwhite;
+    font-family: $Lato;
+    padding: 50px 0;
+    color: $blue;
+    h2 {
+        font-weight: bold;
+    }
+    p {
+        font-size: 30px;
+        font-weight: 300;
+    }
+    .row {
+        margin: 0;
+    }
+    .input-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 50px 0 0;
+        .input-field {
+            display: block;
+            margin: 10px;
+            height: 50px;
+            width: 400px;
+        }
+    }
+}
+.footer {
+    .copyright-container {
+        background-color: $blue;
+        padding: 70px;
+        color: $lightwhite;
+        text-align: center;
+
+        .footer-logo {
+            height: 150px;
+            width: 150px;
+            margin-bottom: 50px;
+        }
+        p {
+            font-family: $Lato;
+            font-size: 20px;
+            a {
+                color: $lightwhite;
+            }
+        }
+    }
+}
+
+@import '_mobile.scss';
