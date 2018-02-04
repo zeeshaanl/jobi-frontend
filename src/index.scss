@@ -48,6 +48,70 @@ body {
         margin: 50px;
 
     }
+
+    .side-menu {
+        position: relative;
+        left: 0px;
+    }
+
+    .bm-burger-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        background-color: $yellow;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+
+        .fa {
+            position: relative;
+            top: 20%;
+            left: 25%;
+        }
+    }
+
+    /* Position and sizing of clickable cross button */
+    .bm-cross-button {
+        height: 24px;
+        width: 24px;
+    }
+    /* Color/shape of close button cross */
+    .bm-cross {
+        background: #bdc3c7;
+    }
+
+    /* General sidebar styles */
+    .bm-menu {
+        background: #373a47;
+        padding: 2.5em 1.5em 0;
+        font-size: 1.15em;
+    }
+
+    /* Morph shape necessary with bubble or elastic */
+    .bm-morph-shape {
+        fill: #373a47;
+    }
+
+    /* Wrapper for item list */
+    .bm-item-list {
+        color: #b8b7ad;
+        padding: 0.8em;
+        .menu-item {
+            color: $lightwhite;
+            font-family: $Lato;
+            font-size: 20px;
+            margin: 5px 0;
+        }
+    }
+
+    /* Styling of overlay */
+    .bm-overlay {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
     .yellow-icon:nth-child(2) {
         position: absolute;
         right: 50px;
@@ -80,34 +144,76 @@ body {
     &.about {
         background-color: $blue;
         position: absolute;
+        font-family: $OpenSans;
         top:0;
         left:0;
         height: 100%;
         width: 100%;
+
         .container {
             display: flex;
             align-items: center;
             height: 100%;
+
             .row {
                 width: 100%;
+                height: 100%;
             }
-        }
-        h1 {
-            color: $lightwhite;
-            text-align: left;
+
+            h1 {
+                color: $lightwhite;
+                text-align: left;
+            }
+
+            hr {
+                width: 90%;
+                border-color: $grey;
+            }
+
+            .bottom-link {
+                color: $lightwhite;
+                display: inline-block;
+                width: 50%;
+                text-align: left;
+                opacity: 0.7;
+                padding: 5px 50px;
+            }
+
+            .tab-list {
+                list-style-type: none;
+                .tab {
+                    color: $lightwhite;
+                    font-family: $OpenSans;
+                    font-size: 70px;
+                    font-weight: 900;
+                }
+                .tab span:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
         }
 
-        .tab-list {
-            list-style-type: none;
-            .tab {
-                color: $lightwhite;
-                font-family: $OpenSans;
-                font-size: 70px;
-                font-weight: 900;
+        #selected {
+            color: $lightwhite;
+            opacity: 0.7;
+
+            .about-logo {
+                display: block;
+                margin: 0 auto;
+                height: 200px;
+                width: 200px;
             }
-            .tab span:hover {
-                text-decoration: underline;
-                cursor: pointer;
+            p {
+                line-height: 2;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+
+                li {
+                    line-height: 2;
+                }
             }
         }
     }
@@ -287,6 +393,40 @@ body {
     }
 }
 
+.contact-form {
+    .contact-input,
+    .contact-textarea {
+        background: transparent;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid $lightwhite;
+        margin-bottom: 30px;
+    }
+    .contact-input::placeholder {
+        color: $lightwhite;
+    }
+    label {
+        font-weight: 400;
+    }
+
+    .contact-textarea {
+        background-color: rgba(253, 253, 253, 0.3);
+        border-bottom: none;
+    }
+
+    .submit-button {
+        color: $lightwhite;
+        display: block;
+        background: none;
+        border: 1px solid $lightwhite;
+        border-radius: 55px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 65%;
+    }
+}
+
 .btn-container {
     margin: 20px 0;
     text-align: center;
@@ -350,5 +490,11 @@ body {
         }
     }
 }
-
+/*
+ * {
+ background: #000 !important;
+ color: #0f0 !important;
+ outline: solid #f00 1px !important;
+ }
+ */
 @import '_mobile.scss';
