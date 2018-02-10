@@ -200,6 +200,7 @@ body {
                 .tab-content {
                     display: none;
                     color: #fff;
+                    padding: 20px 0 0;
                     ul {
                         list-style-type: none;
                         padding: 0;
@@ -212,18 +213,17 @@ body {
             }
 
         }
+        .about-logo {
+            display: block;
+            margin: 20px auto;
+            height: 200px;
+            width: 200px;
+        }
 
         #selected {
             align-self: start;
             color: $lightwhite;
-            opacity: 0.7;
 
-            .about-logo {
-                display: block;
-                margin: 0 auto;
-                height: 200px;
-                width: 200px;
-            }
             p {
                 line-height: 2;
             }

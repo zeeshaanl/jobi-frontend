@@ -74,6 +74,14 @@ export default class About extends React.Component {
 
                                     </div>
                                 </div>
+                                <div className='tab-group'>
+                                    <li id='tab4' className='tab' onClick={() => this.tabClickHandler(4)}>
+                                        <span>for Companies</span>
+                                    </li>
+                                    <div className='tab-content'>
+
+                                    </div>
+                                </div>
                             </ul>
                             <hr />
                             <a href='#' className='bottom-link'>Privacy policy</a>
@@ -121,6 +129,9 @@ export default class About extends React.Component {
                 <div id='tab3-content' className='hidden'>
                     <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                     <ContactForm />
+                </div>
+                <div id='tab4-content' className='hidden'>
+                    <img src={bigLogo} className='about-logo' />
                 </div>
             </React.Fragment>
         );
