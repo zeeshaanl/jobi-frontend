@@ -6,21 +6,44 @@ export default class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeContent: '',
-            activeClass: ''
+            activeIndex: null
         }
     }
 
-    componentDidMount()  {
-        document.querySelectorAll('.tab').forEach(function(current, index) {
-            current.addEventListener('click', function() {
-                let content = document.getElementById('tab' + (index+1) + '-content').innerHTML;
-                document.getElementById('selected').innerHTML = content;
-            });
-        });
+    componentWillMount(){
+        document.getElementById('body').className='blue-bg'
+    }
+
+    componentWillUnmount(){
+        document.getElementById('body').className=''
+    }
+
+    tabClickHandler(index) {
+        if (index !== this.state.activeIndex) {
+            this.setState({
+                activeIndex: index
+            })
+        } else {
+            this.setState({
+                activeIndex: null
+            })
+        }
+    }
+
+    clearTabContent() {
+        document.querySelectorAll('.tab-content').forEach(function(current) {
+            current.innerHTML = '';
+        })
     }
 
     render() {
+        this.clearTabContent();
+        if (this.state.activeIndex) {
+            let tabClass = 'tab' + this.state.activeIndex;
+            let content = document.getElementById(tabClass + '-content').innerHTML;
+            document.getElementById('selected').innerHTML = content;
+            document.querySelector('#' + tabClass + ' + ' + '.tab-content').innerHTML = content;
+        }
         return (
             <React.Fragment>
                 <div className='content about'>
@@ -28,7 +51,7 @@ export default class About extends React.Component {
                         <div className='col-md-7'>
                             <ul className='tab-list'>
                                 <div className='tab-group'>
-                                    <li id='tab1' className='tab'>
+                                    <li id='tab1' className='tab' onClick={() => this.tabClickHandler(1)}>
                                         <span>About</span>
                                     </li>
                                     <div className='tab-content'>
@@ -36,14 +59,20 @@ export default class About extends React.Component {
                                     </div>
                                 </div>
                                 <div className='tab-group'>
-                                    <li id='tab2' className='tab'>
+                                    <li id='tab2' className='tab' onClick={() => this.tabClickHandler(2)}>
                                         <span>Freelancer Kit</span>
                                     </li>
+                                    <div className='tab-content'>
+
+                                    </div>
                                 </div>
                                 <div className='tab-group'>
-                                    <li id='tab3' className='tab'>
+                                    <li id='tab3' className='tab' onClick={() => this.tabClickHandler(3)}>
                                         <span>Contact</span>
                                     </li>
+                                    <div className='tab-content'>
+
+                                    </div>
                                 </div>
                             </ul>
                             <hr />
@@ -52,7 +81,7 @@ export default class About extends React.Component {
                             <a href='#' className='bottom-link'>Terms of use</a>
                             <a href='#' className='bottom-link'>I want to join the team</a>
                         </div>
-                        <div className='col-md-5'>
+                        <div className='col-md-5 selected-container'>
                             <div id='selected'>
                                 <img src={bigLogo} className='about-logo' />
                             </div>

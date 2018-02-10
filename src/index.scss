@@ -21,13 +21,14 @@ $lightwhite: #FDFDFD;
 .center-align {
     text-align: center;
 }
-
+.blue-bg {
+    background-color: $blue;
+}
 .bold {
     font-weight: bold;
 }
 
 body {
-    background-color: $bg;
 }
 
 #root {
@@ -35,6 +36,7 @@ body {
 }
 
 .header {
+    background-color: $bg;
     width: 100%;
     .yellow-icon {
         display: flex;
@@ -135,6 +137,7 @@ body {
 }
 
 .content {
+    background-color: $bg;
     h1, h2, h3 {
         color: $blue;
         font-family: $Lato;
@@ -145,21 +148,17 @@ body {
         background-color: $blue;
         position: absolute;
         font-family: $OpenSans;
-        top:0;
-        left:0;
-        height: 100%;
+        top: 0;
+        left: 0;
         width: 100%;
 
         .container {
-            display: flex;
-            align-items: center;
-            height: 100%;
-
+            margin-top: 10%;
             .row {
-                width: 100%;
-                height: 100%;
             }
-
+            .selected-container {
+                height: 60%;
+            }
             h1 {
                 color: $lightwhite;
                 text-align: left;
@@ -179,6 +178,12 @@ body {
                 padding: 5px 50px;
             }
 
+
+            .tab-group {
+                display: inline;
+                with: 100%;
+            }
+
             .tab-list {
                 list-style-type: none;
                 .tab {
@@ -186,15 +191,30 @@ body {
                     font-family: $OpenSans;
                     font-size: 70px;
                     font-weight: 900;
+                    width: 100%;
                 }
                 .tab span:hover {
                     text-decoration: underline;
                     cursor: pointer;
                 }
+                .tab-content {
+                    display: none;
+                    color: #fff;
+                    ul {
+                        list-style-type: none;
+                        padding: 0;
+
+                        li {
+                            line-height: 2;
+                        }
+                    }
+                }
             }
+
         }
 
         #selected {
+            align-self: start;
             color: $lightwhite;
             opacity: 0.7;
 
@@ -490,11 +510,9 @@ body {
         }
     }
 }
-/*
- * {
- background: #000 !important;
- color: #0f0 !important;
- outline: solid #f00 1px !important;
- }
- */
+// * {
+// background: #000 !important;
+// color: #0f0 !important;
+// outline: solid #f00 1px !important;
+// }
 @import '_mobile.scss';
