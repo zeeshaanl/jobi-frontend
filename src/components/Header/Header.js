@@ -17,6 +17,7 @@ export default class Header extends Component {
                             <a id='login' className='menu-item' href='/login'>Login</a>
                             <a id='register' className='menu-item' href='/register'>Register</a>
                             <a id='about' className='menu-item' href='/about'>About</a>
+                            <a id='job' className='menu-item' href='/job'>Job</a>
                         </Menu>
                     </div>
                     <div className='logo-container col-sm-6 hidden-xs hidden-sm'>
