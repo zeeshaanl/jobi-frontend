@@ -10,7 +10,7 @@ class SearchForm extends React.Component {
                 <div className='job-search-form'>
                     <p>MAKING FREELANCING RELIABLE FOR FREELANCERS AND BUSINESSES.</p>
                     <p>FIND YOUR WORK NOW!</p>
-                    <form action="" method="GET" id="job_search_form">
+                    <form action="" method="GET" id="job_search_form" onSubmit={this.props.submitHandler}>
                         <h1 className='main-text'>I'm an</h1>
                         <MaskedInput
                             mask={false}
@@ -41,6 +41,7 @@ class SearchForm extends React.Component {
                         />
                         <datalist id="type-datalist"></datalist>
                         <br className='hidden-xs hidden-sm' />
+                        <button type='submit'>Submit</button>
                     </form>
                 </div>
                 <div className='container'>

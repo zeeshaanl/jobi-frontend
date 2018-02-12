@@ -328,6 +328,27 @@ body {
         .search-results {
             background-color: $lightwhite;
             padding: 20px;
+
+            .alert-bar {
+                background-color: $bg;
+                color: $blue;
+                font-size: 20px;
+                margin: 0 20px;
+                padding: 20px;
+
+                .text {
+                    margin: 0 30px;
+                }
+                .icon {
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 25px;
+                    padding: 0 10px;
+                    &:hover {
+                        color: $blue;
+                    }
+                }
+            }
             .job-post {
                 background-color: $bg;
                 border-radius: 5px;
