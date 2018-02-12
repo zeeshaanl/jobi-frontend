@@ -1,9 +1,24 @@
 import React from 'react';
+import config from 'react-global-configuration';
 import SearchForm from '../SearchForm/SearchForm.js';
 import JobPost from '../JobPost/JobPost.js';
 import NewsletterForm from '../NewsletterForm/NewsletterForm.js';
 
 class Search extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {
+            jobs: []
+        }
+        var that = this;
+        fetch(config.get('apiUrl') + '/jobs').then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            that.setState({
+                jobs: data.slice(0, 4)
+            });
+        });
+    }
     render() {
         return (
             <React.Fragment>
@@ -11,8 +26,7 @@ class Search extends React.Component {
                     <SearchForm />
 
                     <div className='search-results'>
-                        <JobPost company='Google' location='Berlin' description='A job description or JD is a document that describes the general tasks, or other related, and responsibilities of a position. It may specify the functionary to whom the position reports, specifications such as the qualifications or skills needed by the person in the job, and a salary range.' />
-                        <JobPost company='Google' location='San Francisco' bookmarked='bookmarked' description='A job description or JD is a document that describes the general tasks, or other related, and responsibilities of a position. It may specify the functionary to whom the position reports, specifications such as the qualifications or skills needed by the person in the job, and a salary range.' />
+                        {this.state.jobs.map(job => <JobPost key={job.id} {...job} />)}
                     </div>
                 </div>
                 <NewsletterForm />

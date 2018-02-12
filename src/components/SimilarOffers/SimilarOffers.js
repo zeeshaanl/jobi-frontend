@@ -1,6 +1,5 @@
 import React from 'react';
 import config from 'react-global-configuration';
-import HorizontalScroll from 'react-scroll-horizontal';
 import Offer from './Offer.js';
 
 const scrollStyles = {

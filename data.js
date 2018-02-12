@@ -18,6 +18,7 @@ module.exports = () => {
         data.jobs.push({
             id: i,
             title: faker.name.jobTitle(),
+            bookmarked: faker.random.boolean(),
             company: faker.company.companyName(),
             description: faker.lorem.paragraphs(5),
             location: faker.name.jobArea(),
