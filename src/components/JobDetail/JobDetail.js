@@ -40,7 +40,7 @@ export default class JobDetail extends React.Component {
                     </div>
                 </div>
 
-                <SimilarOffers />
+                <SimilarOffers heading="Similar Offers" />
             </div>
         );
     }

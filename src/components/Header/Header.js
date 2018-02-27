@@ -9,16 +9,11 @@ export default class Header extends Component {
             <header className='header container-fluid'>
                 <div className='row'>
                     <div className='col-xs-6 col-sm-3'>
-                        <Menu
-                            className='side-menu'
-                            customBurgerIcon= { <FontAwesome name='bars' size='2x' /> }
-                        >
-                            <a id='home' className='menu-item' href='/'>Home</a>
-                            <a id='login' className='menu-item' href='/login'>Login</a>
-                            <a id='register' className='menu-item' href='/register'>Register</a>
-                            <a id='about' className='menu-item' href='/about'>About</a>
-                            <a id='job' className='menu-item' href='/job'>Job</a>
-                        </Menu>
+                        <div className='yellow-icon hidden-xs hidden-sm'>
+                            <a id='about' className='menu-item' href='/about'>
+                                <FontAwesome name='bars' size='2x' />
+                            </a>
+                        </div>
                     </div>
                     <div className='logo-container col-sm-6 hidden-xs hidden-sm'>
                         <img className='logo' src={logo} alt='Jobi logo' />

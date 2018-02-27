@@ -24,11 +24,15 @@ export default class SimilarOffers extends React.Component {
     render() {
         return (
             <div className='similar-offers'>
-                <div className='row'>
-                    <div className='col-xs-12 col-sm-3'>
-                        <h2>Similar offers</h2>
-                    </div>
-                </div>
+
+                {this.props.heading &&
+                        <div className='row'>
+                            <div className='col-xs-12 col-sm-6'>
+                                <h2>{this.props.heading}</h2>
+                            </div>
+                        </div>
+                }
+
                 <div className='row'>
                     <div className='scroll'>
                         {this.state.jobs.map(job => <Offer key={job.id} {...job} />)}

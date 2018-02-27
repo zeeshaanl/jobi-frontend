@@ -5,6 +5,7 @@ import Signup from '../Signup/Signup.js';
 import Login from '../Login/Login.js';
 import JobDetail from '../JobDetail/JobDetail.js';
 import About from '../About/About.js';
+import UserProfile from '../UserProfile/UserProfile.js';
 
 export default class Main extends React.Component {
     render() {
@@ -15,6 +16,7 @@ export default class Main extends React.Component {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/job' component={JobDetail} />
                 <Route exact path='/about' component={About} />
+                <Route exact path='/profile' component={UserProfile} />
             </Switch>
         );
     }

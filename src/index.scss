@@ -14,8 +14,10 @@ $Lato: 'Lato', 'Arial', 'Helvetica';
 $bg: #F3E7E6;
 $yellow: #FEE44D;
 $blue: #0300F9;
+$lightgrey: #CDCEC8;
 $grey: #9E95E0;
 $lightwhite: #FDFDFD;
+$green: #34FF04;
 
 /* global classes */
 .dual-column {
@@ -56,6 +58,12 @@ body {
         border-radius: 50%;
         margin: 50px;
 
+        .menu-item {
+            color: black;
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
 
     .side-menu {
@@ -292,7 +300,7 @@ body {
             margin: 0;
             text-align: center;
             color: $blue;
-            padding: 0;
+            padding: 0 0 100px;
             .main-text {
                 color: $grey;
                 display: inline;
@@ -419,6 +427,107 @@ body {
         }
         .btn-container {
             text-align: left;
+        }
+    }
+
+    &.profile {
+        color: $blue;
+        font-family: $Lato;
+
+        .row {
+            margin: 0;
+        }
+
+        hr {
+            border-top: 1px solid $blue;
+            margin: 10px 0 10px;
+            &.half-width {
+                width: 50%;
+            }
+            &.grey {
+                border-top: 1px solid $grey;
+            }
+        }
+
+        .profile-picture {
+            height: 100%;
+            width: 100%;
+        }
+        .full-name {
+            font-size: 35px;
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+        .availability {
+            color: $green;
+            font-size: 70px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .social-links {
+            width: 50%;
+            .link-container {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+        .location {
+            line-height: 100%;
+            display: flex;
+            align-items: center;
+            .text {
+                font-size: 18px;
+                font-weight: 300px;
+                padding-left: 10px;
+            }
+        }
+
+        .react-calendar {
+            background-color: $bg;
+            border: none;
+        }
+
+        .skill {
+            background-color: $lightgrey;
+            border-radius: 20px;
+            color: $blue;
+            margin: 5px;
+            padding: 10px 30px;
+
+            &:hover {
+                background-color: $blue;
+                color: $lightgrey;
+                cursor: pointer;
+            }
+        }
+
+        .react-tabs__tab-list {
+            list-style-type: none;
+            display: flex;
+            justify-content: left;
+
+            .react-tabs__tab {
+                color: #000;
+                cursor: pointer;
+                display: inline-block;
+                font-weight: bold;
+                font-size: 17px;
+                padding: 20px 30px;
+                text-transform: uppercase;
+                &:hover,
+                &:active,
+                &--selected {
+                    border-bottom: 2px solid #000;
+                }
+            }
+        }
+        .react-tabs__tab-panel {
+            color: #000;
+            padding: 10px;
+
+            &--selected {
+                min-height: 200px;
+            }
         }
     }
 }

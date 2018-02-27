@@ -44,8 +44,10 @@ class SearchForm extends React.Component {
                         <button type='submit'>Submit</button>
                     </form>
                 </div>
-                <div className='container'>
-                    <SimilarOffers />
+                <div className='row'>
+                    <div className='container'>
+                        <SimilarOffers renderHeading={false} />
+                    </div>
                 </div>
             </React.Fragment>
         );
