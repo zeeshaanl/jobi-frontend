@@ -1,9 +1,13 @@
 @media only screen and (max-width: 768px) {
     .header {
+        .row {
+            max-width: 100%;
+            margin: 0;
+        }
         .yellow-icon {
             font-size: 15px;
-            height: 60px;
-            width: 60px;
+            height: 50px;
+            width: 50px;
             margin: 20px;
         }
 
@@ -125,6 +129,43 @@
 
                 #selected {
                     display: none;
+                }
+            }
+        }
+
+        &.profile {
+
+            hr {
+                &.half-width {
+                    width: 100%;
+                }
+            }
+            .availability {
+                font-size: 40px;
+            }
+            .social-links {
+                width: 100%;
+            }
+            .location {
+                font-size: 12px;
+            }
+            .react-tabs__tab-list {
+                padding: 0;
+
+                .react-tabs__tab {
+                    display: block;
+                }
+            }
+            .skill {
+                display: inline-block;
+            }
+            .react-tabs__tab-list {
+                justify-content: space-between;
+
+                .react-tabs__tab {
+                    padding: 10px 0;
+                    font-size: 12px;
+                    text-align: center;
                 }
             }
         }

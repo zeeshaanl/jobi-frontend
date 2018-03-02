@@ -20,6 +20,7 @@
     "react-autosize-textarea": "^3.0.2",
     "react-burger-menu": "^2.2.3",
     "react-calendar": "^2.13.0",
+    "react-calendar-component": "^2.0.0",
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
     "react-global-configuration": "^1.2.1",

@@ -6,6 +6,7 @@ import Calendar from 'react-calendar';
 
 import Skill from "./Skill.js";
 import SimilarOffers from "../SimilarOffers/SimilarOffers.js";
+import Header from '../Header/Header.js';
 
 export default class UserProfile extends React.Component {
     constructor(props) {
@@ -18,16 +19,23 @@ export default class UserProfile extends React.Component {
             return response.json();
         }).then(function(data){
             that.setState({
-                user: data[0]
-            })
+                user: data[1]
+            });
+            const headerStyle = document.getElementById('header').style;
+            const bg = `url('${that.state.user.picture}') no-repeat`;
+            headerStyle.background = bg;
+            headerStyle['background-size'] = 'cover';
+            headerStyle.height = '50vh';
         })
     }
     render() {
         return (
             <div className="content profile">
+                <div className="container-fluid hidden-md hidden-lg">
+                </div>
                 <div className="row">
                     <div className="container">
-                        <div className="col-md-3">
+                        <div className="col-md-3 hidden-xs hidden-sm">
                             <img className="profile-picture" src={this.state.user.picture} alt={this.state.user.username} />
                         </div>
                         <div className="col-md-6">
@@ -60,7 +68,10 @@ export default class UserProfile extends React.Component {
                             </section>
                         </div>
                         <div className="col-md-3">
-                            <Calendar />
+                            <Calendar
+                                className="hidden-xs hidden-sm"
+                                date={new Date()}
+                            />
                         </div>
                     </div>
                     <div className='container'>
@@ -83,26 +94,26 @@ export default class UserProfile extends React.Component {
 
                             <TabPanel>
                                 {this.state.user.skills &&
-                                    this.state.user.skills.map(skill => <Skill key={skill} content={skill}/>)}
-                            </TabPanel>
+                                        this.state.user.skills.map(skill => <Skill key={skill} content={skill}/>)}
+                                    </TabPanel>
 
-                            <TabPanel>
+                                    <TabPanel>
 
-                            </TabPanel>
+                                    </TabPanel>
 
-                            <TabPanel>
+                                    <TabPanel>
 
-                            </TabPanel>
-                        </Tabs>
+                                    </TabPanel>
+                                </Tabs>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="container">
+
+                                <SimilarOffers heading="Job offers based on your profile"/>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="container">
-
-                        <SimilarOffers heading="Job offers based on your profile"/>
-                    </div>
-                </div>
-            </div>
         );
     }
 }

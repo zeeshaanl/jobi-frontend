@@ -6,10 +6,10 @@ import logo from './logo.jpg';
 export default class Header extends Component {
     render() {
         return (
-            <header className='header container-fluid'>
+            <header id="header" className='header container-fluid'>
                 <div className='row'>
                     <div className='col-xs-6 col-sm-3'>
-                        <div className='yellow-icon hidden-xs hidden-sm'>
+                        <div className='yellow-icon'>
                             <a id='about' className='menu-item' href='/about'>
                                 <FontAwesome name='bars' size='2x' />
                             </a>
