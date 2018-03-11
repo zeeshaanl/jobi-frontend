@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactForm from './ContactForm.js';
-import bigLogo from './big_logo.png';
+import bigLogo from './img/big_logo.png';
 
 export default class About extends React.Component {
     constructor(props) {

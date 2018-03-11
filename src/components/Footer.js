@@ -1,6 +1,6 @@
 import React from 'react';
 import MaskedInput from 'react-text-mask';
-import bigLogo from './big_logo.png';
+import bigLogo from './img/big_logo.png';
 
 export default class Footer extends React.Component {
     componentDidMount() {

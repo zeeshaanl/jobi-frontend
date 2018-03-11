@@ -1,7 +1,7 @@
 import React from 'react';
 import MaskedInput from 'react-text-mask';
-import JobPost from '../JobPost/JobPost.js';
-import SimilarOffers from '../SimilarOffers/SimilarOffers.js';
+import JobPost from './JobPost.js';
+import SimilarOffers from './SimilarOffers.js';
 
 class SearchForm extends React.Component {
     render() {

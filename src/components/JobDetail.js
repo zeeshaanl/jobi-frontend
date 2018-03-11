@@ -1,6 +1,6 @@
 import React from 'react';
 import config from 'react-global-configuration';
-import SimilarOffers from '../SimilarOffers/SimilarOffers';
+import SimilarOffers from './SimilarOffers.js';
 
 export default class JobDetail extends React.Component {
     constructor() {

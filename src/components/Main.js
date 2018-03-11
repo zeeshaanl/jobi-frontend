@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Search from '../Search/Search.js';
-import Signup from '../Signup/Signup.js';
-import Login from '../Login/Login.js';
-import JobDetail from '../JobDetail/JobDetail.js';
-import About from '../About/About.js';
-import UserProfile from '../UserProfile/UserProfile.js';
+import Search from './Search.js';
+import Signup from './Signup.js';
+import Login from './Login.js';
+import JobDetail from './JobDetail.js';
+import About from './About.js';
+import UserProfile from './UserProfile.js';
 
 export default class Main extends React.Component {
     render() {

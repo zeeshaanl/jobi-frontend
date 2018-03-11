@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import { slide as Menu } from 'react-burger-menu'
-import logo from './logo.jpg';
+import logo from './img/logo.jpg';
 
 export default class Header extends Component {
     render() {
