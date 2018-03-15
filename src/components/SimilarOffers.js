@@ -13,7 +13,7 @@ export default class SimilarOffers extends React.Component {
         this.state =  {
             jobs: []
         }
-        fetch(config.get('apiUrl') + '/jobs').then(function(response) {
+        fetch(config.get('JOBS_ENDPOINT')).then(function(response) {
             return response.json();
         }).then(function(data){
             that.setState({

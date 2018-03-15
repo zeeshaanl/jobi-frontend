@@ -12,7 +12,7 @@ export default class JobDetail extends React.Component {
             location: '',
         }
         var that = this;
-        fetch(config.get('apiUrl') + '/jobs').then(function(response) {
+        fetch(config.get('JOBS_ENDPOINT')).then(function(response) {
             return response.json();
         }).then(function(data){
             that.setState({

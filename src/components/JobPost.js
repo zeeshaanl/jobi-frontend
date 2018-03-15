@@ -12,7 +12,7 @@ class JobPost extends React.Component {
         this.bookmarkHandler = this.bookmarkHandler.bind(this);
     }
     bookmarkHandler() {
-        const url = config.get('apiUrl') + '/jobs/' + this.props.id;
+        const url = config.get('JOBS_ENDPOINT') + this.props.id;
         const data = { bookmarked: !this.state.bookmarked }
         var that = this
         fetch(url, {
