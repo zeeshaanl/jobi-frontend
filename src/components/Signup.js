@@ -1,13 +1,14 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { auth } from "../firebase";
+
+import { auth, db } from "../firebase";
+import * as routes from "../routes";
 
 import MaskedInput from "react-text-mask";
 import Checkbox from "rc-checkbox";
 import emailMask from "text-mask-addons/dist/emailMask";
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import Footer from "./Footer.js";
-import * as routes from "../routes";
 
 let numberMask = createNumberMask({
     prefix: "",
@@ -38,13 +39,20 @@ class Signup extends React.Component {
     }
 
     onSubmit = event => {
-        const { username, email, password } = this.state;
+        const { firstName, lastName, email, phoneno, password } = this.state;
 
         const { history } = this.props;
 
         auth
             .doCreateUserWithEmailAndPassword(email, password)
             .then(authUser => {
+                db.doCreateUser(
+                    authUser.uid,
+                    firstName,
+                    lastName,
+                    email,
+                    phoneno
+                );
                 this.setState(() => ({ ...INITIAL_STATE }));
                 history.push(routes.HOME);
             })
