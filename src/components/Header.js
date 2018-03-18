@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { compose } from "recompose";
 import FontAwesome from "react-fontawesome";
 import { slide as Menu } from "react-burger-menu";
+
 import logo from "./img/logo.jpg";
 import { HOME, ABOUT, PROFILE } from "../routes";
+import LogoutButton from "./Logout";
 
-export default class Header extends Component {
+import withAuthentication from "./withAuthentication";
+
+class Header extends Component {
     render() {
         return (
             <header id="header" className="header container-fluid">
@@ -37,3 +43,9 @@ export default class Header extends Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    authUser: state.sessionState.authUser
+});
+
+export default connect(mapStateToProps)(Header);

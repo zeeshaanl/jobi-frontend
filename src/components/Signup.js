@@ -192,6 +192,11 @@ class Signup extends React.Component {
                             </div>
                         </div>
                         <div className="row">
+                            {error && (
+                                <p className="error center-align">
+                                    {error.message}
+                                </p>
+                            )}
                             <div className="checkbox-container col-sm-5 col-sm-offset-4">
                                 <Checkbox
                                     className="checkbox"
@@ -224,8 +229,6 @@ class Signup extends React.Component {
                             <p className="center-align">
                                 Already have an account? Sign in
                             </p>
-
-                            {error && <p>{error.message}</p>}
                         </div>
                     </form>
                 </div>

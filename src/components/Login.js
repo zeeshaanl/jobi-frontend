@@ -1,7 +1,9 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import MaskedInput from "react-text-mask";
 
+import { PasswordForgetLink } from "./PasswordForget";
 import { auth } from "../firebase";
 import * as routes from "../routes";
 
@@ -29,7 +31,8 @@ class Login extends React.Component {
 
         auth
             .doSignInWithEmailAndPassword(email, password)
-            .then(() => {
+            .then(user => {
+                this.props.setUserInStore(user);
                 this.setState(() => ({ ...INITIAL_STATE }));
                 history.push(routes.HOME);
             })
@@ -81,6 +84,11 @@ class Login extends React.Component {
                                 name="password"
                             />
                             <div className="btn-container">
+                                {error && (
+                                    <p className="error center-align">
+                                        {error.message}
+                                    </p>
+                                )}
                                 <button
                                     type="submit"
                                     disabled={isInvalid}
@@ -88,12 +96,12 @@ class Login extends React.Component {
                                 >
                                     Login
                                 </button>
-
-                                {error && <p>{error.message}</p>}
                             </div>
                             <p className="center-align">
-                                Don't have an account? Sign Up!
+                                Don't have an account?
+                                <Link to={routes.REGISTER}> Sign Up!</Link>
                             </p>
+                            <PasswordForgetLink />
                         </div>
                     </div>
                 </form>
@@ -102,4 +110,14 @@ class Login extends React.Component {
     }
 }
 
-export default withRouter(Login);
+function mapDispatchToProps(dispatch) {
+    return {
+        setUserInStore: user =>
+            dispatch({
+                type: "AUTH_USER_SET",
+                authUser: user
+            })
+    };
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(Login));
