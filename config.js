@@ -1,8 +1,6 @@
-const API_ROOT = "https://jobi-test-server.herokuapp.com";
+const API_ROOT = "http://138.68.110.30:4444";
 
 const config = {
-    LOGIN_ENDPOINT: API_ROOT + "/login",
-    USER_ENDPOINT: API_ROOT + "/users",
     JOBS_ENDPOINT: API_ROOT + "/jobs"
 };
 

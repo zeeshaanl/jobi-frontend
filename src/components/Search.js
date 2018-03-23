@@ -1,61 +1,72 @@
-import React from 'react';
-import config from 'react-global-configuration';
-import FontAwesome from 'react-fontawesome';
+import React from "react";
+import ReactDOM from "react-dom";
+import config from "react-global-configuration";
+import FontAwesome from "react-fontawesome";
+import buildUrl from "build-url";
 
-import SearchForm from './SearchForm.js';
-import JobPost from './JobPost.js';
-import NewsletterForm from './NewsletterForm.js';
+import SearchForm from "./SearchForm.js";
+import JobPost from "./JobPost.js";
+import NewsletterForm from "./NewsletterForm.js";
 
 class Search extends React.Component {
     constructor(props) {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            jobs: [],
-            filteredJobs: [],
-        }
-        var that = this;
-        fetch(config.get('JOBS_ENDPOINT')).then(function(response) {
-            return response.json();
-        }).then(function(data) {
-            that.setState({
-                jobs: data,
-                filteredJobs: data.slice(0, 4)
-            });
-        });
+            jobs: []
+        };
     }
 
     handleSubmit(evt) {
         evt.preventDefault();
-        let keyword = evt.target.elements.keyword.value.trim();
-        let location = evt.target.elements.location.value.trim();
-        let jobType = evt.target.elements.job_type.value.trim();
-
-        this.setState({
-            filteredJobs: this.state.jobs.filter(job => {
-                return job.location.toLowerCase().includes(location)
-            })
+        const formElements = evt.target.elements;
+        const endpoint = buildUrl(config.get("JOBS_ENDPOINT"), {
+            queryParams: {
+                jobTitle: formElements.job_type.value.trim(),
+                location: formElements.location.value.trim()
+            }
         });
+        const that = this;
+        fetch(endpoint)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                that.setState({
+                    jobs: data
+                });
+                that.scrollToResults();
+            })
+            .catch(err => console.error(err));
+    }
+
+    scrollToResults() {
+        const tesNode = ReactDOM.findDOMNode(this.refs.results);
+        window.scrollTo(0, tesNode.offsetTop);
     }
 
     render() {
         return (
             <React.Fragment>
-                <div className='content search-container'>
+                <div className="content search-container">
                     <SearchForm submitHandler={this.handleSubmit} />
 
-                    <div className='search-results'>
-                        <section className='alert-bar'>
-                            <FontAwesome name='bell' />
-                            <span className='text'>Turn on email alerts for this search</span>
-                            <aside className='pull-right'>
-                                <FontAwesome className='icon' name='facebook' />
-                                <FontAwesome className='icon' name='linkedin' />
-                                <FontAwesome className='icon' name='xing' />
+                    <div ref="results" className="search-results">
+                        <section className="alert-bar">
+                            <FontAwesome name="bell" />
+                            <span className="text">
+                                Turn on email alerts for this search
+                            </span>
+                            <aside className="pull-right">
+                                <FontAwesome className="icon" name="facebook" />
+                                <FontAwesome className="icon" name="linkedin" />
+                                <FontAwesome className="icon" name="xing" />
                             </aside>
                         </section>
 
-                        {this.state.filteredJobs.map(job => <JobPost key={job.id} {...job} />)}
+                        {this.state.jobs.map(job => (
+                            <JobPost key={job.id} {...job} />
+                        ))}
                     </div>
                 </div>
                 <NewsletterForm />

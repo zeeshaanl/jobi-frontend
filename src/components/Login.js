@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { compose } from "recompose";
 import MaskedInput from "react-text-mask";
 
 import { PasswordForgetLink } from "./PasswordForget";
@@ -43,6 +44,12 @@ class Login extends React.Component {
         event.preventDefault();
     };
 
+    componentDidMount() {
+        if (this.props.authUser) {
+            this.props.history.push(routes.PROFILE);
+        }
+    }
+
     render() {
         const { email, password, error } = this.state;
 
@@ -53,7 +60,7 @@ class Login extends React.Component {
                 <h2>Please log in</h2>
 
                 <form id="login-form" onSubmit={this.onSubmit}>
-                    <div className="row">
+                    <div className="container-fluid">
                         <div className="col-sm-3 center-block">
                             <MaskedInput
                                 mask={false}
@@ -110,7 +117,11 @@ class Login extends React.Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapStateToProps = state => ({
+    authUser: state.sessionState.authUser
+});
+
+const mapDispatchToProps = dispatch => {
     return {
         setUserInStore: user =>
             dispatch({
@@ -118,6 +129,9 @@ function mapDispatchToProps(dispatch) {
                 authUser: user
             })
     };
-}
+};
 
-export default connect(null, mapDispatchToProps)(withRouter(Login));
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps)
+)(Login);

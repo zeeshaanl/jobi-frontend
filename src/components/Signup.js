@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { compose } from "recompose";
 
 import { auth, db } from "../firebase";
 import * as routes from "../routes";
@@ -36,6 +38,12 @@ class Signup extends React.Component {
         super(props);
 
         this.state = { ...INITIAL_STATE };
+    }
+
+    componentDidMount() {
+        if (this.props.authUser) {
+            this.props.history.push(routes.PROFILE);
+        }
     }
 
     onSubmit = event => {
@@ -245,4 +253,8 @@ class Signup extends React.Component {
     }
 }
 
-export default withRouter(Signup);
+const mapStateToProps = state => ({
+    authUser: state.sessionState.authUser
+});
+
+export default compose(withRouter, connect(mapStateToProps))(Signup);

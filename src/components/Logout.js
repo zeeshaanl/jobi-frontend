@@ -6,23 +6,23 @@ import { withRouter } from "react-router-dom";
 import { auth } from "../firebase";
 import * as routes from "../routes";
 
-class LogoutButton extends React.Component {
+class LogoutLink extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <button
-                type="button"
-                onClick={() => {
+            <a
+                onClick={evt => {
+                    evt.preventDefault();
                     this.props.setUserInStore(undefined);
-                    window.location = routes.LOGIN;
                     auth.doSignOut();
+                    window.location = routes.LOGIN;
                 }}
             >
-                Sign Out
-            </button>
+                LOGOUT
+            </a>
         );
     }
 }
@@ -38,5 +38,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default compose(withRouter, connect(null, mapDispatchToProps))(
-    LogoutButton
+    LogoutLink
 );

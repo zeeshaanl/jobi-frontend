@@ -2,71 +2,68 @@ import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { connect } from "react-redux";
 import { compose } from "recompose";
+import { withRouter } from "react-router-dom";
 import config from "react-global-configuration";
 import FontAwesome from "react-fontawesome";
 import Calendar from "react-calendar";
-import Loader from "react-loader";
 
 import withAuthentication from "./withAuthentication";
 import Skill from "./Skill.js";
 import SimilarOffers from "./SimilarOffers.js";
 import * as routes from "../routes";
 
+import defaultImage from "./img/default.jpg";
+
 class UserProfile extends React.Component {
     constructor(props) {
-        super();
-        this.state = {
-            user: {},
-            loaded: false,
-            authUser: props.authUser
-        };
+        super(props);
     }
 
     componentDidMount() {
         var that = this;
-        fetch(config.get("USER_ENDPOINT"))
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                that.setState({
-                    user: data[1],
-                    loaded: true
-                });
-                if (window.matchMedia("(max-width: 768px)").matches) {
-                    const headerStyle = document.getElementById("header").style;
-                    const bg = `url('${that.state.user.picture}') no-repeat`;
-                    headerStyle.background = bg;
-                    headerStyle["background-size"] = "cover";
-                    headerStyle.height = "50vh";
-                }
-            });
+        // set the responsive mobile header
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            const headerStyle = document.getElementById("header").style;
+            const bg = `url('${that.props.authUser.picture}') no-repeat`;
+            headerStyle.background = bg;
+            headerStyle["background-size"] = "cover";
+            headerStyle.height = "50vh";
+        }
     }
 
+
+    // TODO: create a proper user profile that serves everything from firebase
+    // TODO: modify Calendar component to highlight days on which user is booked
     render() {
-        return (
-            <div className="content profile">
-                <Loader loaded={this.state.loaded}>
+        if (!this.props.authUser) {
+            return null;
+        } else {
+            return (
+                <div className="content profile">
                     <div className="row">
                         <div className="container">
                             <div className="col-md-3 hidden-xs hidden-sm">
                                 <img
                                     className="profile-picture"
-                                    src={this.state.user.picture}
-                                    alt={this.state.user.username}
+                                    src={
+                                        this.props.authUser.photoURL
+                                            ? this.props.authUser.photoURL
+                                            : defaultImage
+                                    }
+                                    alt={this.props.authUser.username}
                                 />
                             </div>
                             <div className="col-md-6">
                                 <section className="full-name">
-                                    {this.state.user.firstName}{" "}
-                                    {this.state.user.lastName}
+                                    {this.props.authUser.firstName}{" "}
+                                    {this.props.authUser.lastName}
                                 </section>
                                 <section className="job-title">
-                                    {this.state.user.jobTitle}
+                                    {this.props.authUser.jobTitle}
                                 </section>
                                 <hr className="half-width" />
                                 <section className="availability">
-                                    {this.state.user.availability}
+                                    {this.props.authUser.availability}
                                 </section>
                                 <hr className="half-width" />
                                 <section className="social-links">
@@ -87,8 +84,8 @@ class UserProfile extends React.Component {
                                 <section className="location">
                                     <FontAwesome name="map-marker" size="2x" />
                                     <span className="text">
-                                        {this.state.user.city},
-                                        {" " + this.state.user.country}
+                                        {this.props.authUser.city},
+                                        {" " + this.props.authUser.country}
                                     </span>
                                 </section>
                             </div>
@@ -114,17 +111,19 @@ class UserProfile extends React.Component {
                                 </TabList>
 
                                 <TabPanel>
-                                    <p>{this.state.user.about}</p>
+                                    <p>{this.props.authUser.about}</p>
                                 </TabPanel>
 
                                 <TabPanel>
-                                    {this.state.user.skills &&
-                                        this.state.user.skills.map(skill => (
-                                            <Skill
-                                                key={skill}
-                                                content={skill}
-                                            />
-                                        ))}
+                                    {this.props.authUser.skills &&
+                                        this.props.authUser.skills.map(
+                                            skill => (
+                                                <Skill
+                                                    key={skill}
+                                                    content={skill}
+                                                />
+                                            )
+                                        )}
                                 </TabPanel>
 
                                 <TabPanel />
@@ -138,18 +137,18 @@ class UserProfile extends React.Component {
                             <SimilarOffers heading="Job offers based on your profile" />
                         </div>
                     </div>
-                </Loader>
-            </div>
-        );
+                </div>
+            );
+        }
     }
 }
 
-const authCondition = authUser => !!authUser;
-
 const mapStateToProps = state => ({
-    authUser: state.sessionState.authUser
+    authUser: state.sessionprops.authUser
 });
 
-export default compose(withAuthentication, connect(mapStateToProps))(
-    UserProfile
-);
+export default compose(
+    withAuthentication,
+    withRouter,
+    connect(mapStateToProps)
+)(UserProfile);

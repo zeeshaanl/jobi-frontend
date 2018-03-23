@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import FontAwesome from "react-fontawesome";
-import { slide as Menu } from "react-burger-menu";
 
 import logo from "./img/logo.jpg";
 import { HOME, ABOUT, PROFILE } from "../routes";
 import LogoutButton from "./Logout";
-
+import Menu from "./Menu";
 import withAuthentication from "./withAuthentication";
 
 class Header extends Component {
@@ -29,14 +28,7 @@ class Header extends Component {
                         </Link>
                     </div>
                     <div className="col-xs-6 col-sm-3 pull-right">
-                        <div className="yellow-icon pull-right hidden-xs hidden-sm">
-                            <a href={PROFILE}>
-                                <FontAwesome name="user" size="2x" />
-                            </a>
-                        </div>
-                        <h3 className="mobile-title hidden-md hidden-lg">
-                            JOBI
-                        </h3>
+                        <Menu />
                     </div>
                 </div>
             </header>

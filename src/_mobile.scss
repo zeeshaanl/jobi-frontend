@@ -4,6 +4,13 @@
             max-width: 100%;
             margin: 0;
         }
+
+        .dropdown__content {
+            top: 81px;
+            left: -23px;
+            width: 130px;
+        }
+
         .yellow-icon {
             font-size: 15px;
             height: 50px;
@@ -27,6 +34,7 @@
             top: 10px;
         }
     }
+
     .content {
         padding: 20px;
         &.search-container {
@@ -134,7 +142,6 @@
         }
 
         &.profile {
-
             hr {
                 &.half-width {
                     width: 100%;
@@ -200,5 +207,3 @@
         }
     }
 }
-
-

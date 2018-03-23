@@ -8,18 +8,12 @@ const scrollStyles = {
 
 export default class SimilarOffers extends React.Component {
     constructor(props) {
-        super();
+        // TODO: Configure this to recommend jobs based on user preferences
+        super(props);
         var that = this;
         this.state =  {
             jobs: []
         }
-        fetch(config.get('JOBS_ENDPOINT')).then(function(response) {
-            return response.json();
-        }).then(function(data){
-            that.setState({
-                jobs: data.slice(0, 4)
-            })
-        })
     }
     render() {
         return (
