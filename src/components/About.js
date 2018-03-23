@@ -4,6 +4,7 @@ import bigLogo from './img/big_logo.png';
 
 export default class About extends React.Component {
     constructor(props) {
+        // TODO: Add close button to About component to take back to main app
         super(props);
         this.state = {
             activeIndex: null

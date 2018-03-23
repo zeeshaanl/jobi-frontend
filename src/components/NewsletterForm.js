@@ -2,6 +2,7 @@ import React from 'react';
 import MaskedInput from 'react-text-mask';
 
 export default class NewsletterForm extends React.Component {
+    // TODO: connect this form to a newsletter registration API
     render() {
         return (
             <div className='newsletter-container'>
