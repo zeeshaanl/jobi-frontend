@@ -24,7 +24,12 @@ class UserProfile extends React.Component {
         // set the responsive mobile header
         if (window.matchMedia("(max-width: 768px)").matches) {
             const headerStyle = document.getElementById("header").style;
-            const bg = `url('${that.props.authUser.picture}') no-repeat`;
+            // TODO: use proper PhotoURL from firebase
+            const photoURL =
+                this.props.authUser && this.props.authUser.photoURL
+                    ? defaultImage // this.props.authUser.photoURL
+                    : defaultImage;
+            const bg = `url('${photoURL}') no-repeat`;
             headerStyle.background = bg;
             headerStyle["background-size"] = "cover";
             headerStyle.height = "50vh";
