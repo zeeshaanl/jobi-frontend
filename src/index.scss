@@ -20,740 +20,749 @@ $green: #34ff04;
 
 /* global classes */
 .dual-column {
-    column-count: 2;
+	column-count: 2;
 }
+
 .center-align {
-    text-align: center;
+	text-align: center;
 }
+
 .blue-bg {
-    background-color: $blue;
+	background-color: $blue;
 }
+
 .bold {
-    font-weight: bold;
+	font-weight: bold;
 }
+
 .hover-hand {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .error {
-    color: red;
+	color: red;
 }
 
 body {
-    background-color: $bg;
+	background-color: $bg;
 }
 
 #root {
-    width: 100%;
+	width: 100%;
 }
 
 .arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-    position: relative;
-    bottom: 10px;
-    left: 45%;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid white;
+	position: relative;
+	bottom: 10px;
+	left: 45%;
 }
 
 .header {
-    background-color: $bg;
-    width: 100%;
+	background-color: $bg;
+	width: 100%;
 
-    .dropdown {
-        display: inline-block;
-        position: relative;
+	.dropdown {
+		display: inline-block;
+		position: relative;
 
-        .yellow-icon {
-            cursor: pointer;
-        }
-    }
+		.yellow-icon {
+			cursor: pointer;
+		}
+	}
 
-    .dropdown__content {
-        background: white;
-        border-radius: 5px;
-        display: none;
-        position: absolute;
-        top: 110px;
-        left: 0;
-        width: 145px;
-        z-index: 1;
+	.dropdown__content {
+		background: white;
+		border-radius: 5px;
+		display: none;
+		position: absolute;
+		top: 110px;
+		left: 0;
+		width: 145px;
+		z-index: 1;
 
-        ul {
-            font-family: $Lato;
-            list-style-type: none;
-            padding: 0;
+		ul {
+			font-family: $Lato;
+			list-style-type: none;
+			padding: 0;
 
-            li {
-                text-align: center;
-                cursor: pointer;
+			li {
+				text-align: center;
+				cursor: pointer;
 
-                &:hover {
-                    background: $lightgrey;
-                }
+				&:hover {
+					background: $lightgrey;
+				}
 
-                a:hover {
-                    color: $blue;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
+				a:hover {
+					color: $blue;
+					text-decoration: none;
+				}
+			}
+		}
+	}
 
-    .dropdown--active .dropdown__content {
-        display: block;
-    }
+	.dropdown--active .dropdown__content {
+		display: block;
+	}
 
-    .user-icon {
-        width: 100%;
-        border-radius: 50%;
-    }
+	.user-icon {
+		width: 100%;
+		border-radius: 50%;
+	}
 
-    .yellow-icon {
-        color: grey;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        height: 50px;
-        width: 50px;
-        background-color: $yellow;
-        border-radius: 50%;
-        margin: 50px;
+	.yellow-icon {
+		color: grey;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 10px;
+		height: 50px;
+		width: 50px;
+		background-color: $yellow;
+		border-radius: 50%;
+		margin: 50px;
 
-        .menu-item {
-            color: black;
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
+		.menu-item {
+			color: black;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
 
-    .side-menu {
-        position: relative;
-        left: 0px;
-    }
+	.side-menu {
+		position: relative;
+		left: 0px;
+	}
 
-    .bm-burger-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 50px;
-        left: 50px;
-        background-color: $yellow;
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
+	.bm-burger-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 50px;
+		left: 50px;
+		background-color: $yellow;
+		border-radius: 50%;
+		height: 50px;
+		width: 50px;
 
-        .fa {
-            position: relative;
-            top: 20%;
-            left: 25%;
-        }
-    }
+		.fa {
+			position: relative;
+			top: 20%;
+			left: 25%;
+		}
+	}
 
-    /* Position and sizing of clickable cross button */
-    .bm-cross-button {
-        height: 24px;
-        width: 24px;
-    }
-    /* Color/shape of close button cross */
-    .bm-cross {
-        background: #bdc3c7;
-    }
+	/* Position and sizing of clickable cross button */
+	.bm-cross-button {
+		height: 24px;
+		width: 24px;
+	}
+	/* Color/shape of close button cross */
+	.bm-cross {
+		background: #bdc3c7;
+	}
 
-    /* General sidebar styles */
-    .bm-menu {
-        background: #373a47;
-        padding: 2.5em 1.5em 0;
-        font-size: 1.15em;
-    }
+	/* General sidebar styles */
+	.bm-menu {
+		background: #373a47;
+		padding: 2.5em 1.5em 0;
+		font-size: 1.15em;
+	}
 
-    /* Morph shape necessary with bubble or elastic */
-    .bm-morph-shape {
-        fill: #373a47;
-    }
+	/* Morph shape necessary with bubble or elastic */
+	.bm-morph-shape {
+		fill: #373a47;
+	}
 
-    /* Wrapper for item list */
-    .bm-item-list {
-        color: #b8b7ad;
-        padding: 0.8em;
-        .menu-item {
-            color: $lightwhite;
-            font-family: $Lato;
-            font-size: 20px;
-            margin: 5px 0;
-        }
-    }
+	/* Wrapper for item list */
+	.bm-item-list {
+		color: #b8b7ad;
+		padding: 0.8em;
+		.menu-item {
+			color: $lightwhite;
+			font-family: $Lato;
+			font-size: 20px;
+			margin: 5px 0;
+		}
+	}
 
-    /* Styling of overlay */
-    .bm-overlay {
-        background: rgba(0, 0, 0, 0.3);
-    }
+	/* Styling of overlay */
+	.bm-overlay {
+		background: rgba(0, 0, 0, 0.3);
+	}
 
-    .yellow-icon:nth-child(2) {
-        position: absolute;
-        right: 50px;
-    }
-    .mobile-heading {
-        color: $blue;
-        display: block;
-        font-family: "Raleway", sans-serif;
-        font-weight: bold;
-        font-size: 80px;
-        letter-spacing: 10px;
-        margin: 70px 70px 70px 0px;
-    }
-    .logo-container {
-        text-align: center;
-        .logo {
-            height: 100px;
-            margin: 40px 0 30px;
-        }
-    }
+	.yellow-icon:nth-child(2) {
+		position: absolute;
+		right: 50px;
+	}
+	.mobile-heading {
+		color: $blue;
+		display: block;
+		font-family: "Raleway", sans-serif;
+		font-weight: bold;
+		font-size: 80px;
+		letter-spacing: 10px;
+		margin: 70px 70px 70px 0px;
+	}
+	.logo-container {
+		text-align: center;
+		.logo {
+			height: 100px;
+			margin: 40px 0 30px;
+		}
+	}
 }
 
 .content {
-    background-color: $bg;
-    min-height: 500px;
-    h1,
-    h2,
-    h3 {
-        color: $blue;
-        font-family: $Lato;
-        text-align: center;
-    }
+	background-color: $bg;
+	min-height: 500px;
+	h1,
+	h2,
+	h3 {
+		color: $blue;
+		font-family: $Lato;
+		text-align: center;
+	}
 
-    &.about {
-        background-color: $blue;
-        position: absolute;
-        font-family: $OpenSans;
-        top: 0;
-        left: 0;
-        width: 100%;
+	&.about {
+		background-color: $blue;
+		position: absolute;
+		font-family: $OpenSans;
+		top: 0;
+		left: 0;
+		width: 100%;
 
-        .container {
-            margin-top: 10%;
-            .row {
-            }
-            .selected-container {
-                height: 60%;
-            }
-            h1 {
-                color: $lightwhite;
-                text-align: left;
-            }
+		.container {
+			margin-top: 10%;
+			.row {
+			}
+			.selected-container {
+				height: 60%;
+			}
+			h1 {
+				color: $lightwhite;
+				text-align: left;
+			}
 
-            hr {
-                width: 90%;
-                border-color: $grey;
-            }
+			hr {
+				width: 90%;
+				border-color: $grey;
+			}
 
-            .bottom-link {
-                color: $lightwhite;
-                display: inline-block;
-                width: 50%;
-                text-align: left;
-                opacity: 0.7;
-                padding: 5px 50px;
-            }
+			.bottom-link {
+				color: $lightwhite;
+				display: inline-block;
+				width: 50%;
+				text-align: left;
+				opacity: 0.7;
+				padding: 5px 50px;
+			}
 
-            .tab-group {
-                display: inline;
-                with: 100%;
-            }
+			.tab-group {
+				display: inline;
+				with: 100%;
+			}
 
-            .tab-list {
-                list-style-type: none;
-                .tab {
-                    color: $lightwhite;
-                    font-family: $OpenSans;
-                    font-size: 70px;
-                    font-weight: 900;
-                    width: 100%;
-                }
-                .tab span:hover {
-                    text-decoration: underline;
-                    cursor: pointer;
-                }
-                .tab-content {
-                    display: none;
-                    color: #fff;
-                    padding: 20px 0 0;
-                    ul {
-                        list-style-type: none;
-                        padding: 0;
+			.tab-list {
+				list-style-type: none;
+				.tab {
+					color: $lightwhite;
+					font-family: $OpenSans;
+					font-size: 70px;
+					font-weight: 900;
+					width: 100%;
+				}
+				.tab span:hover {
+					text-decoration: underline;
+					cursor: pointer;
+				}
+				.tab-content {
+					display: none;
+					color: #fff;
+					padding: 20px 0 0;
+					ul {
+						list-style-type: none;
+						padding: 0;
 
-                        li {
-                            line-height: 2;
-                        }
-                    }
-                }
-            }
-        }
-        .about-logo {
-            display: block;
-            margin: 20px auto;
-            height: 200px;
-            width: 200px;
-        }
+						li {
+							line-height: 2;
+						}
+					}
+				}
+			}
+		}
+		.about-logo {
+			display: block;
+			margin: 20px auto;
+			height: 200px;
+			width: 200px;
+		}
 
-        #selected {
-            align-self: start;
-            color: $lightwhite;
+		#selected {
+			align-self: start;
+			color: $lightwhite;
 
-            p {
-                line-height: 2;
-            }
-            ul {
-                list-style-type: none;
-                padding: 0;
+			p {
+				line-height: 2;
+			}
+			ul {
+				list-style-type: none;
+				padding: 0;
 
-                li {
-                    line-height: 2;
-                }
-            }
-        }
-    }
+				li {
+					line-height: 2;
+				}
+			}
+		}
+	}
 
-    &.login {
-        .input-field {
-            border-radius: 30px;
-            display: block;
-            margin: 30px auto;
-            height: 60px;
-            width: 95%;
-        }
+	&.login {
+		.input-field {
+			border-radius: 30px;
+			display: block;
+			margin: 30px auto;
+			height: 60px;
+			width: 95%;
+		}
 
-        .btn-container {
-            width: 95%;
-            text-align: center;
-            .btn {
-                border-radius: 30px;
-                height: 60px;
-                width: 100%;
-                margin: 10px;
-            }
-        }
-    }
+		.btn-container {
+			width: 95%;
+			text-align: center;
+			.btn {
+				border-radius: 30px;
+				height: 60px;
+				width: 100%;
+				margin: 10px;
+			}
+		}
+	}
 
-    &.signup {
-        .input-field {
-            border-radius: 30px;
-            display: block;
-            margin: 30px auto;
-            height: 60px;
-            width: 95%;
-        }
+	&.signup {
+		.input-field {
+			border-radius: 30px;
+			display: block;
+			margin: 30px auto;
+			height: 60px;
+			width: 95%;
+		}
 
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            .btn {
-                border-radius: 30px;
-                height: 60px;
-                margin: 10px;
-            }
-        }
-    }
+		.btn-container {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			.btn {
+				border-radius: 30px;
+				height: 60px;
+				margin: 10px;
+			}
+		}
+	}
 
-    &.search-container {
-        .job-search-form {
-            margin: 0;
-            text-align: center;
-            color: $blue;
-            padding: 0 0 100px;
+	&.search-container {
+		.job-search-form {
+			margin: 0;
+			text-align: center;
+			color: $blue;
+			padding: 0 0 100px;
 
-            .main-text {
-                color: $grey;
-                display: inline;
-                font-family: $Lato;
-                font-size: 70px;
-                font-weight: 700;
-                line-height: normal;
-                margin: 0;
-            }
+			.main-text {
+				color: $grey;
+				display: inline;
+				font-family: $Lato;
+				font-size: 60px;
+				font-weight: 700;
+				line-height: normal;
+				margin: 0;
+			}
 
-            .search-field {
-                color: $blue;
-                background: transparent;
-                border: none;
-                margin: 5px;
-                padding: 0 2px;
-                outline: none;
+			.search-field {
+				color: $blue;
+				background: transparent;
+				border: none;
+				margin: 5px;
+				padding: 0 2px;
+				outline: none;
 
-                &#keyword {
-                    width: 400px;
-                }
-                &#location {
-                    width: 250px;
-                }
-                &#job_type {
-                    width: 350px;
-                }
-                &::placeholder {
-                    color: $blue;
-                }
-            }
-        }
-        .search-results {
-            background-color: $lightwhite;
-            padding: 20px;
+				&#keyword {
+					width: 400px;
+				}
+				&#location {
+					width: 270px;
+				}
+				&#job_type {
+					width: 400px;
+				}
+				&::placeholder {
+					color: $blue;
+				}
+			}
+		}
+		.search-results {
+			background-color: $lightwhite;
+			padding: 20px;
 
-            .alert-bar {
-                background-color: $bg;
-                color: $blue;
-                font-size: 20px;
-                margin: 0 20px;
-                padding: 20px;
+			.alert-bar {
+				background-color: $bg;
+				color: $blue;
+				font-size: 20px;
+				margin: 0 20px;
+				padding: 20px;
 
-                .text {
-                    margin: 0 30px;
-                }
-                .icon {
-                    color: #fff;
-                    cursor: pointer;
-                    font-size: 25px;
-                    padding: 0 10px;
-                    &:hover {
-                        color: $blue;
-                    }
-                }
-            }
-            .job-post {
-                background-color: $bg;
-                border-radius: 5px;
-                color: $blue;
-                font-family: $Lato;
-                font-size: 25px;
-                font-weight: 300;
-                margin: 20px;
-                .job-heading {
-                    display: flex;
-                    justify-content: space-between;
-                    border-bottom: 1px solid $blue;
-                    padding: 20px 20px 15px;
-                    .heading {
-                        display: inline-block;
-                        padding: 0 10px 0 10px;
-                        border-right: 1px solid $blue;
-                    }
-                    .fa {
-                        padding-left: 10px;
-                    }
-                    .time-posted {
-                        font-size: 15px;
-                    }
-                }
-                .job-description {
-                    p {
-                        padding: 20px;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
-                        white-space: nowrap;
-                    }
-                }
-            }
-            .bookmarked {
-                background-color: $blue;
-                color: $lightwhite;
-                .job-heading {
-                    border-color: $grey;
-                    .heading {
-                        border-color: $lightwhite;
-                    }
-                }
-            }
-        }
-    }
-    &.job-detail {
-        color: $blue;
-        font-family: $Lato;
-        font-weight: 300;
-        h1 {
-            display: inline-block;
-            padding: 0 2%;
-            text-align: left;
-            font-weight: inherit;
-            span {
-                display: inline-block;
-                padding: 0 10px 0 10px;
-            }
-            .border-right {
-                border-right: 1px solid $blue;
-            }
-        }
+				.text {
+					margin: 0 30px;
+				}
+				.icon {
+					color: #fff;
+					cursor: pointer;
+					font-size: 25px;
+					padding: 0 10px;
+					&:hover {
+						color: $blue;
+					}
+				}
+			}
+			.job-post {
+				background-color: $bg;
+				border-radius: 5px;
+				color: $blue;
+				font-family: $Lato;
+				font-size: 25px;
+				font-weight: 300;
+				margin: 20px;
+				.job-heading {
+					display: flex;
+					justify-content: space-between;
+					border-bottom: 1px solid $blue;
+					padding: 20px 20px 15px;
+					.heading {
+						display: inline-block;
+						padding: 0 10px 0 10px;
+						border-right: 1px solid $blue;
+					}
+					.fa {
+						padding-left: 10px;
+					}
+					.time-posted {
+						font-size: 15px;
+					}
+				}
+				.job-description {
+					p {
+						padding: 20px;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						font-size: 21px;
+						//white-space: nowrap;
+					}
+				}
 
-        hr {
-            border: 1px solid $blue;
-            border-top: none;
-        }
-        .btn-container {
-            text-align: left;
+				.c-apply-link {
+					font-size: 2.2rem
+				}
+			}
+			.bookmarked {
+				background-color: $blue;
+				color: $lightwhite;
+				.job-heading {
+					border-color: $grey;
+					.heading {
+						border-color: $lightwhite;
+					}
+				}
+			}
+		}
+	}
+	&.job-detail {
+		color: $blue;
+		font-family: $Lato;
+		font-weight: 300;
+		h1 {
+			display: inline-block;
+			padding: 0 2%;
+			text-align: left;
+			font-weight: inherit;
+			span {
+				display: inline-block;
+				padding: 0 10px 0 10px;
+			}
+			.border-right {
+				border-right: 1px solid $blue;
+			}
+		}
 
-            a {
-                display: block;
-                padding-top: 13px;
-            }
-        }
-    }
+		hr {
+			border: 1px solid $blue;
+			border-top: none;
+		}
+		.btn-container {
+			text-align: left;
 
-    &.profile {
-        color: $blue;
-        font-family: $Lato;
+			a {
+				display: block;
+				padding-top: 13px;
+			}
+		}
+	}
 
-        .row {
-            margin: 0;
-        }
+	&.profile {
+		color: $blue;
+		font-family: $Lato;
 
-        hr {
-            border-top: 1px solid $blue;
-            margin: 10px 0 10px;
+		.row {
+			margin: 0;
+		}
 
-            &.half-width {
-                width: 50%;
-            }
-            &.grey {
-                border-top: 1px solid $grey;
-            }
-        }
+		hr {
+			border-top: 1px solid $blue;
+			margin: 10px 0 10px;
 
-        .profile-picture {
-            height: 100%;
-            width: 100%;
-        }
-        .full-name {
-            font-size: 35px;
-            font-weight: 300;
-            margin-bottom: 0;
-        }
-        .availability {
-            color: $green;
-            font-size: 70px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-        .social-links {
-            width: 50%;
-            .link-container {
-                display: flex;
-                justify-content: space-around;
-            }
-        }
-        .location {
-            display: flex;
-            align-items: center;
-            .text {
-                font-size: 18px;
-                font-weight: 300px;
-                padding-left: 10px;
-            }
-        }
+			&.half-width {
+				width: 50%;
+			}
+			&.grey {
+				border-top: 1px solid $grey;
+			}
+		}
 
-        .react-calendar {
-            background-color: $bg;
-            border: none;
-        }
+		.profile-picture {
+			height: 100%;
+			width: 100%;
+		}
+		.full-name {
+			font-size: 35px;
+			font-weight: 300;
+			margin-bottom: 0;
+		}
+		.availability {
+			color: $green;
+			font-size: 70px;
+			margin: 0;
+			text-transform: uppercase;
+		}
+		.social-links {
+			width: 50%;
+			.link-container {
+				display: flex;
+				justify-content: space-around;
+			}
+		}
+		.location {
+			display: flex;
+			align-items: center;
+			.text {
+				font-size: 18px;
+				font-weight: 300px;
+				padding-left: 10px;
+			}
+		}
 
-        .skill {
-            background-color: $lightgrey;
-            border-radius: 20px;
-            color: $blue;
-            margin: 5px;
-            padding: 10px 30px;
-            width: auto;
+		.react-calendar {
+			background-color: $bg;
+			border: none;
+		}
 
-            &:hover {
-                background-color: $blue;
-                color: $lightgrey;
-                cursor: pointer;
-            }
-        }
+		.skill {
+			background-color: $lightgrey;
+			border-radius: 20px;
+			color: $blue;
+			margin: 5px;
+			padding: 10px 30px;
+			width: auto;
 
-        .react-tabs__tab-list {
-            list-style-type: none;
-            display: flex;
-            justify-content: left;
+			&:hover {
+				background-color: $blue;
+				color: $lightgrey;
+				cursor: pointer;
+			}
+		}
 
-            .react-tabs__tab {
-                color: #000;
-                cursor: pointer;
-                display: inline-block;
-                font-weight: bold;
-                font-size: 17px;
-                padding: 20px 30px;
-                text-transform: uppercase;
-                &:hover,
-                &:active,
-                &--selected {
-                    border-bottom: 2px solid #000;
-                }
-            }
-        }
-        .react-tabs__tab-panel {
-            color: #000;
-            padding: 10px;
+		.react-tabs__tab-list {
+			list-style-type: none;
+			display: flex;
+			justify-content: left;
 
-            &--selected {
-                min-height: 200px;
-            }
-        }
-    }
+			.react-tabs__tab {
+				color: #000;
+				cursor: pointer;
+				display: inline-block;
+				font-weight: bold;
+				font-size: 17px;
+				padding: 20px 30px;
+				text-transform: uppercase;
+				&:hover,
+				&:active,
+				&--selected {
+					border-bottom: 2px solid #000;
+				}
+			}
+		}
+		.react-tabs__tab-panel {
+			color: #000;
+			padding: 10px;
+
+			&--selected {
+				min-height: 200px;
+			}
+		}
+	}
 }
 
 .center-block {
-    float: none;
-    margin: 0 auto;
+	float: none;
+	margin: 0 auto;
 }
 
 .input-field {
-    border-radius: 25px;
-    margin: 20px 0;
-    text-align: center;
-    padding: 20px;
+	border-radius: 25px;
+	margin: 20px 0;
+	text-align: center;
+	padding: 20px;
 }
 
 .checkbox-container {
-    padding: 20px 0 20px 60px;
-    .checkbox-label {
-        position: absolute;
-    }
+	padding: 20px 0 20px 60px;
+	.checkbox-label {
+		position: absolute;
+	}
 }
 
 .contact-form {
-    .contact-input,
-    .contact-textarea {
-        background: transparent;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        border-bottom: 1px solid $lightwhite;
-        margin-bottom: 30px;
-    }
-    .contact-input::placeholder {
-        color: $lightwhite;
-    }
-    label {
-        font-weight: 400;
-    }
+	.contact-input,
+	.contact-textarea {
+		background: transparent;
+		width: 100%;
+		box-shadow: none;
+		border: none;
+		border-bottom: 1px solid $lightwhite;
+		margin-bottom: 30px;
+	}
+	.contact-input::placeholder {
+		color: $lightwhite;
+	}
+	label {
+		font-weight: 400;
+	}
 
-    .contact-textarea {
-        background-color: rgba(253, 253, 253, 0.3);
-        border-bottom: none;
-    }
+	.contact-textarea {
+		background-color: rgba(253, 253, 253, 0.3);
+		border-bottom: none;
+	}
 
-    .submit-button {
-        color: $lightwhite;
-        display: block;
-        background: none;
-        border: 1px solid $lightwhite;
-        border-radius: 55px;
-        margin: 0 auto;
-        padding: 20px;
-        width: 65%;
-    }
+	.submit-button {
+		color: $lightwhite;
+		display: block;
+		background: none;
+		border: 1px solid $lightwhite;
+		border-radius: 55px;
+		margin: 0 auto;
+		padding: 20px;
+		width: 65%;
+	}
 }
 
 .similar-offers {
-    h2 {
-        border-bottom: 3px solid $blue;
-        font-family: $Lato;
-        font-weight: 300;
-        text-align: left;
-        padding: 20px;
-    }
-    .scroll {
-    }
-    .offer {
-        color: $grey;
-        display: inline-block;
-        font-size: 15px;
-        padding: 10px;
-        .title {
-            a {
-                color: $blue;
-                font-family: $Lato;
-                font-size: 20px;
-                font-weight: 700;
-            }
+	h2 {
+		border-bottom: 3px solid $blue;
+		font-family: $Lato;
+		font-weight: 300;
+		text-align: left;
+		padding: 20px;
+	}
+	.scroll {
+	}
+	.offer {
+		color: $grey;
+		display: inline-block;
+		font-size: 15px;
+		padding: 10px;
+		.title {
+			a {
+				color: $blue;
+				font-family: $Lato;
+				font-size: 20px;
+				font-weight: 700;
+			}
 
-            a:hover,
-            a:visited,
-            a:focus {
-                text-decoration: none;
-            }
-        }
-    }
+			a:hover,
+			a:visited,
+			a:focus {
+				text-decoration: none;
+			}
+		}
+	}
 }
 
 .btn-container {
-    margin: 20px 0;
-    text-align: center;
-    font-family: $Lato;
-    .btn {
-        background-color: $blue;
-        border-radius: 25px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 20px 0;
-        width: 20%;
-        height: 50px;
-    }
+	margin: 20px 0;
+	text-align: center;
+	font-family: $Lato;
+	.btn {
+		background-color: $blue;
+		border-radius: 25px;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin: 20px 0;
+		width: 20%;
+		height: 50px;
+	}
 }
 
 .newsletter-container {
-    background-color: $lightwhite;
-    font-family: $Lato;
-    padding: 50px 0;
-    color: $blue;
-    h2 {
-        font-weight: bold;
-    }
-    p {
-        font-size: 30px;
-        font-weight: 300;
-    }
-    .row {
-        margin: 0;
-    }
-    .input-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin: 50px 0 0;
-        .input-field {
-            display: block;
-            margin: 10px;
-            height: 50px;
-            width: 400px;
-        }
-    }
+	background-color: $lightwhite;
+	font-family: $Lato;
+	padding: 50px 0;
+	color: $blue;
+	h2 {
+		font-weight: bold;
+	}
+	p {
+		font-size: 30px;
+		font-weight: 300;
+	}
+	.row {
+		margin: 0;
+	}
+	.input-container {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin: 50px 0 0;
+		.input-field {
+			display: block;
+			margin: 10px;
+			height: 50px;
+			width: 400px;
+		}
+	}
 }
 
 .footer {
-    .copyright-container {
-        background-color: $blue;
-        padding: 70px;
-        color: $lightwhite;
-        text-align: center;
+	.copyright-container {
+		background-color: $blue;
+		padding: 70px;
+		color: $lightwhite;
+		text-align: center;
 
-        .footer-logo {
-            height: 150px;
-            width: 150px;
-            margin-bottom: 50px;
-        }
-        p {
-            font-family: $Lato;
-            font-size: 20px;
-            a {
-                color: $lightwhite;
-            }
-        }
-    }
+		.footer-logo {
+			height: 150px;
+			width: 150px;
+			margin-bottom: 50px;
+		}
+		p {
+			font-family: $Lato;
+			font-size: 20px;
+			a {
+				color: $lightwhite;
+			}
+		}
+	}
 }
 
 @import "_mobile.scss";

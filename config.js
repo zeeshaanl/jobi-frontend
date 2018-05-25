@@ -1,7 +1,11 @@
-const API_ROOT = "http://138.68.110.30:4444";
+const API_ROOT = "https://backend.gojobi.de";
 
 const config = {
-    JOBS_ENDPOINT: API_ROOT + "/jobs"
+    baseURL: API_ROOT,
+    endpoints: {
+        JOBS: "/jobs",
+        CREATE_USER: "/createUser"
+    }
 };
 
 export default config;

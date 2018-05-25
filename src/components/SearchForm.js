@@ -19,37 +19,32 @@ class SearchForm extends React.Component {
                         id="job_search_form"
                         onSubmit={this.props.submitHandler}
                     >
-                        <h1 className="main-text">I'm an</h1>
-                        <MaskedInput
-                            mask={false}
-                            className="search-field main-text"
-                            placeholder="Art Director"
-                            id="keyword"
-                            name="keyword"
-                        />
-                        <datalist id="role-datalist" />
-                        <br className="hidden-xs hidden-sm" />
-                        <h1 className="main-text">looking for a job in</h1>
-                        <MaskedInput
-                            mask={false}
-                            className="search-field main-text"
-                            placeholder="London"
-                            id="location"
-                            name="location"
-                        />
-                        <datalist id="location-datalist" />
-                        <br className="hidden-xs hidden-sm" />
-                        <h1 className="main-text">as a</h1>
-                        <MaskedInput
-                            mask={false}
-                            className="search-field main-text"
-                            placeholder="Freelancer"
-                            id="job_type"
-                            name="job_type"
-                        />
-                        <datalist id="type-datalist" />
-                        <br className="hidden-xs hidden-sm" />
-                        <button type="submit">Submit</button>
+                        <div>
+                            <h1 className="main-text">I'm a</h1>
+                            <MaskedInput
+                                mask={false}
+                                className="search-field main-text"
+                                placeholder="UX Developer"
+                                id="job_type"
+                                name="job_type"
+                            />
+                            <datalist id="type-datalist" />
+                        </div>
+                        <div>
+                            <h1 className="main-text">looking for a job in</h1>
+                            <MaskedInput
+                                mask={false}
+                                className="search-field main-text"
+                                placeholder="Berlin"
+                                id="location"
+                                name="location"
+                            />
+                            <datalist id="location-datalist" />
+                        </div>
+                        <div><h1 className="main-text">as a Freelancer</h1></div>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
                     </form>
                 </div>
                 <div className="container">

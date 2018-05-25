@@ -1,43 +1,47 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import config from "react-global-configuration";
 import FontAwesome from "react-fontawesome";
 import buildUrl from "build-url";
 
 import SearchForm from "./SearchForm.js";
 import JobPost from "./JobPost.js";
 import NewsletterForm from "./NewsletterForm.js";
+import apiClient from './api/client';
 
 class Search extends React.Component {
     constructor(props) {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            jobs: []
+            jobs: [],
+            error: false
         };
     }
 
-    handleSubmit(evt) {
+    async handleSubmit(evt) {
         evt.preventDefault();
         const formElements = evt.target.elements;
-        const endpoint = buildUrl(config.get("JOBS_ENDPOINT"), {
-            queryParams: {
-                jobTitle: formElements.job_type.value.trim(),
-                location: formElements.location.value.trim()
-            }
-        });
+        const queryParams = {
+            jobTitle: formElements.job_type.value.trim(),
+            location: formElements.location.value.trim()
+        };
+
         const that = this;
-        fetch(endpoint)
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                that.setState({
-                    jobs: data
-                });
-                that.scrollToResults();
-            })
-            .catch(err => console.error(err));
+
+        try {
+            const response = await apiClient.fetchJobs(queryParams);
+            const { data } = response;
+            console.log(response);
+            that.setState({
+                jobs: data,
+                error: false
+            });
+            that.scrollToResults();
+        } catch (error) {
+            that.setState({
+                error: error.response.data
+            });
+        }
     }
 
     scrollToResults() {
@@ -46,12 +50,13 @@ class Search extends React.Component {
     }
 
     render() {
+        const { error } = this.state;
         return (
             <React.Fragment>
                 <div className="content search-container">
                     <SearchForm submitHandler={this.handleSubmit} />
 
-                    <div ref="results" className="search-results">
+                    {!error ? <div ref="results" className="search-results">
                         <section className="alert-bar">
                             <FontAwesome name="bell" />
                             <span className="text">
@@ -67,7 +72,7 @@ class Search extends React.Component {
                         {this.state.jobs.map(job => (
                             <JobPost key={job.id} {...job} />
                         ))}
-                    </div>
+                    </div> : <div><h4>{error}</h4></div>}
                 </div>
                 <NewsletterForm />
             </React.Fragment>

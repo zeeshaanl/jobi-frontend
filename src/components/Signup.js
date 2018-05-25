@@ -11,6 +11,8 @@ import Checkbox from "rc-checkbox";
 import emailMask from "text-mask-addons/dist/emailMask";
 import createNumberMask from "text-mask-addons/dist/createNumberMask";
 import Footer from "./Footer.js";
+import apiClient from './api/client';
+import { doCreateUserWithEmailAndPassword } from '../firebase/auth';
 
 let numberMask = createNumberMask({
     prefix: "",
@@ -46,29 +48,36 @@ class Signup extends React.Component {
         }
     }
 
-    onSubmit = event => {
-        const { firstName, lastName, email, phoneno, password } = this.state;
+    onSubmit = async event => {
+        event.preventDefault();
 
+        const { firstName, lastName, email, phoneno, password } = this.state;
         const { history } = this.props;
 
-        auth
-            .doCreateUserWithEmailAndPassword(email, password)
-            .then(authUser => {
-                db.doCreateUser(
-                    authUser.uid,
-                    firstName,
-                    lastName,
-                    email,
-                    phoneno
-                );
-                this.setState(() => ({ ...INITIAL_STATE }));
-                history.push(routes.HOME);
-            })
-            .catch(error => {
-                this.setState(byPropKey("error", error));
-            });
-
-        event.preventDefault();
+        try {
+            const authUser = await doCreateUserWithEmailAndPassword(email, password);
+            const authIdToken = await authUser.getIdToken();
+            const resp = await apiClient.createUser(
+                authIdToken,
+                firstName,
+                lastName,
+                email,
+                phoneno
+            );
+            console.log(resp, 'respo');
+            // db.doCreateUser(
+            //     authUser.uid,
+            //     firstName,
+            //     lastName,
+            //     email,
+            //     phoneno
+            // );
+            this.setState(() => ({ ...INITIAL_STATE }));
+            history.push(routes.HOME);
+        } catch (error) {
+            console.dir(error);
+            this.setState(byPropKey("error", error));
+        }
     };
 
     render() {

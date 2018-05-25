@@ -11,10 +11,12 @@ class JobPost extends React.Component {
         };
         this.bookmarkHandler = this.bookmarkHandler.bind(this);
     }
+
     bookmarkHandler() {
         // TODO: implement this method to call the bookmarking API
         // that shows bookmarked jobs on the user's profile
     }
+
     render() {
         // TODO: redirect user to Job Detail page and use applyLink
         return (
@@ -25,6 +27,9 @@ class JobPost extends React.Component {
             >
                 <div className="job-heading">
                     <div>
+                        <span className="heading">
+                            <h3 className="heading-bold">{this.props.title}</h3>
+                        </span>
                         <span className="heading">
                             {this.props.companyName}
                         </span>
@@ -44,9 +49,14 @@ class JobPost extends React.Component {
                         )}
                     </div>
                 </div>
-
                 <div className="job-description">
-                    <p>{this.props.description}</p>
+                    <p>
+                        <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
+                        <br />
+                        <h4 className='c-apply-link'>
+                            Apply Link: <a target='_blank' href={this.props.applyLink}>{this.props.applyLink}</a>
+                        </h4>
+                    </p>
                 </div>
             </div>
         );

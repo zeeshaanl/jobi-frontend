@@ -33,6 +33,8 @@ class Login extends React.Component {
         auth
             .doSignInWithEmailAndPassword(email, password)
             .then(user => {
+                console.log(user, 'doSignInWithEmailAndPassword callback - user');
+                user.getIdToken().then(data => console.log(data, 'user.getIdToken'));
                 this.props.setUserInStore(user);
                 this.setState(() => ({ ...INITIAL_STATE }));
                 history.push(routes.HOME);

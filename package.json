@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "React frontend for Jobi",
   "main": "./src/index.js",
-  "author": "Muhammad Osama Arshad",
   "license": "MIT",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "deploy": "npm run build && surge build/ gojobi.surge.sh"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "build-url": "^1.0.10",
     "firebase": "^4.11.0",
     "history": "^4.7.2",
