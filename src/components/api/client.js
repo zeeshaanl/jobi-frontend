@@ -23,8 +23,7 @@ class ApiClient {
             telephone
         }, {
             headers: {
-                'Access-Control-Allow-Headers': 'x-access-token',
-                'x-access-token': authToken
+                'Authorization': `Bearer: ${authToken}`
             }
         });
     }
