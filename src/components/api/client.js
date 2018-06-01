@@ -16,7 +16,16 @@ class ApiClient {
 
     createUser(authToken, firstName, lastName, email, telephone) {
         return this.apiInstance.post(config.endpoints.CREATE_USER, {
-            ...arguments
+            id: authToken,
+            firstName,
+            lastName,
+            email,
+            telephone
+        }, {
+            headers: {
+                'Access-Control-Allow-Headers': 'x-access-token',
+                'x-access-token': authToken
+            }
         });
     }
 }

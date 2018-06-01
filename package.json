@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
     "deploy": "npm run build && surge build/ gojobi.surge.sh"

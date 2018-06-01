@@ -1,13 +1,13 @@
 import * as firebase from "firebase";
 
 // Initialize Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyBFqrp4pxbcjHhNtJ_VanY_4tYWyNXzgdQ",
-    authDomain: "jobi-lagos.firebaseapp.com",
-    databaseURL: "https://jobi-lagos.firebaseio.com",
-    projectId: "jobi-lagos",
-    storageBucket: "",
-    messagingSenderId: "370323033587"
+const firebaseConfig = {
+    apiKey: "AIzaSyA8mOi86qE64Xkh_vyfuKKxdacDTE0o1LI",
+    authDomain: "jobi-9dfd0.firebaseapp.com",
+    databaseURL: "https://jobi-9dfd0.firebaseio.com",
+    projectId: "jobi-9dfd0",
+    storageBucket: "jobi-9dfd0.appspot.com",
+    messagingSenderId: "902623205907"
 };
 
 if (!firebase.apps.length) {
