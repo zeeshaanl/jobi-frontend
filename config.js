@@ -5,7 +5,8 @@ const config = {
     baseURL: API_ROOT_DEV,
     endpoints: {
         JOBS: "/jobs",
-        CREATE_USER: "/createUser"
+        CREATE_USER: "/createUser",
+        ADD_JOB_TO_FAVOURITES: "/addJobToFavourites"
     }
 };
 

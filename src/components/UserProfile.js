@@ -34,6 +34,7 @@ class UserProfile extends React.Component {
             headerStyle["background-size"] = "cover";
             headerStyle.height = "50vh";
         }
+
     }
 
     // TODO: create a proper user profile that serves everything from firebase or an API
@@ -221,7 +222,9 @@ class UserProfile extends React.Component {
 
                                 <TabPanel />
 
-                                <TabPanel />
+                                <TabPanel>
+
+                                </TabPanel>
                             </Tabs>
                         </div>
                     </div>

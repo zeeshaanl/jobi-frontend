@@ -30,6 +30,7 @@ class Search extends React.Component {
 
         try {
             const response = await apiClient.fetchJobs(queryParams);
+            console.log(response, 'response');
             const { data } = response;
             console.log(response);
             that.setState({
@@ -38,8 +39,9 @@ class Search extends React.Component {
             });
             that.scrollToResults();
         } catch (error) {
+            console.log(error);
             that.setState({
-                error: error.response.data
+                error: 'Error receiving jobs'
             });
         }
     }

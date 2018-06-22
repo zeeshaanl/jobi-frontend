@@ -16,11 +16,22 @@ class ApiClient {
 
     createUser(authToken, firstName, lastName, email, telephone) {
         return this.apiInstance.post(config.endpoints.CREATE_USER, {
-            id: authToken,
             firstName,
             lastName,
             email,
             telephone
+        }, {
+            headers: {
+                'Authorization': `Bearer: ${authToken}`
+            }
+        });
+    }
+
+    addJobToFavourites(authToken, jobId) {
+        console.log(authToken, 'authtoken received auth token');
+        console.log(jobId, 'jobId received jobId');
+        return this.apiInstance.post(config.endpoints.ADD_JOB_TO_FAVOURITES, {
+            jobId,
         }, {
             headers: {
                 'Authorization': `Bearer: ${authToken}`
